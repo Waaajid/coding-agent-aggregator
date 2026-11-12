@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@import "@xterm/xterm/css/xterm.css";
+@import "diff2html/bundles/css/diff2html.min.css";
+
+:root { color-scheme: dark; }
+html, body, #root { height: 100%; }
+body { background: #0b0f19; color: #e5e7eb; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: #263045; border-radius: 6px; }
+@keyframes pulse-ring { 0% { box-shadow: 0 0 0 0 rgba(245,158,11,.55);} 100% { box-shadow: 0 0 0 10px rgba(245,158,11,0);} }
+.pulse-amber { animation: pulse-ring 1.6s ease-out infinite; }
+@keyframes blink { 0%,80%,100% { opacity: .2 } 40% { opacity: 1 } }
+.dot-typing span { animation: blink 1.2s infinite; } .dot-typing span:nth-child(2){ animation-delay:.2s } .dot-typing span:nth-child(3){ animation-delay:.4s }
+.d2h-wrapper { font-size: 12px; }
+.xterm { padding: 8px; height: 100%; }

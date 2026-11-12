@@ -1,0 +1,22 @@
+{
+  "name": "coding-agent-aggregator",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "packageManager": "pnpm@12.18.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "npm run build --prefix packages/mcp-server && npm run build --prefix packages/web",
+    "start": "npm run build && npm run daemon",
+    "daemon": "npm --prefix packages/daemon run start",
+    "demo": "npm run build && npm --prefix packages/daemon run demo",
+    "mcp:config": "npm run build --prefix packages/mcp-server --silent && node packages/mcp-server/dist/index.mjs --print-config",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0"
+  }
+}
