@@ -121,4 +121,4 @@ Codex runs in its own sandbox and cannot be gated; the API returns a `warnings` 
 
 ## Contributing, security, licence
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md). Released under the [MIT License](LICENSE) © 2026 Wajid Khan. Third-party dependencies are all permissively licensed (MIT, Apache-2.0, ISC, BSD).
+See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md). Released under the [MIT License](LICENSE) © 2026 Wajid Khan. Dependencies are overwhelmingly MIT, ISC, BSD, Apache-2.0 or BlueOak; a handful of unmodified packages are MPL-2.0 (file-level copyleft, which doesn't affect this project's licence).
