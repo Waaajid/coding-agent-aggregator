@@ -6,6 +6,10 @@ Local-first daemon that lets a manager agent (Claude Code) delegate work to work
 git worktree, with one control plane (web + mobile) to chat with the manager, watch everything live, approve actions,
 review diffs and merge. The design specs are in [`docs/`](docs). **All four milestones are implemented.**
 
+![Control plane overview, running against mock agents](docs/img/overview.jpg)
+
+*The overview board in demo mode (mock agents, throwaway repo).*
+
 ## Quick start
 
 ```bash
