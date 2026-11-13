@@ -1,6 +1,5 @@
 {
   "name": "coding-agent-aggregator",
-  "private": true,
   "version": "0.1.0",
   "type": "module",
   "packageManager": "pnpm@12.18.0",
@@ -18,5 +17,21 @@
   },
   "devDependencies": {
     "typescript": "^5.6.0"
-  }
+  },
+  "license": "MIT",
+  "author": "Wajid Khan",
+  "description": "Local-first daemon that lets a manager coding agent delegate work to worker agents in isolated git worktrees, with one web/mobile control plane.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Waaajid/coding-agent-aggregator.git"
+  },
+  "keywords": [
+    "coding-agents",
+    "mcp",
+    "claude-code",
+    "codex",
+    "git-worktree",
+    "orchestration"
+  ],
+  "private": true
 }

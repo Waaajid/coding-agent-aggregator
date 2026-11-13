@@ -1,8 +1,10 @@
 # Coding Agent Aggregator
 
+[![CI](https://github.com/Waaajid/coding-agent-aggregator/actions/workflows/ci.yml/badge.svg)](https://github.com/Waaajid/coding-agent-aggregator/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
 Local-first daemon that lets a manager agent (Claude Code) delegate work to worker agents, each in its own
 git worktree, with one control plane (web + mobile) to chat with the manager, watch everything live, approve actions,
-review diffs and merge. See the spec files one level up (`00`–`04`). **All four milestones are implemented.**
+review diffs and merge. The design specs are in [`docs/`](docs). **All four milestones are implemented.**
 
 ## Quick start
 
@@ -32,7 +34,7 @@ npm run mcp:config          # prints a ready-to-use mcpServers snippet; save it 
 ```
 
 The server reads the manager token from `~/.aggregator/manager.key` (override with `AGGREGATOR_URL` / `AGGREGATOR_MANAGER_TOKEN`).
-Tools: `delegate_task`, `check_task_status`, `read_worker_diff`, `send_feedback`, `merge_worktree` (as in spec 01) plus
+Tools: `delegate_task`, `check_task_status`, `read_worker_diff`, `send_feedback`, `merge_worktree` (as in `docs/01_PROTOCOL_AND_MCP_SPEC.md`) plus
 `agent_health`. Merges requested this way wait for you in the Approvals tab.
 
 ## Phone access
@@ -73,7 +75,7 @@ REST lives under `/api` (`tasks`, `tasks/status?ids=&wait=`, `tasks/:id/{diff,lo
 ## Configuration
 
 `~/.aggregator/` (override with `AGGREGATOR_HOME`): `secret.key` (admin), `manager.key` (manager agent),
-`aggregator.db`, `agents.json` (extra/overriding agents, see spec 02). Env: `AGGREGATOR_PORT`,
+`aggregator.db`, `agents.json` (extra/overriding agents, see `docs/02_AGENT_ADAPTERS_AND_GIT_ENGINE.md`). Env: `AGGREGATOR_PORT`,
 `AGGREGATOR_MAX_CONCURRENT` (4), `AGGREGATOR_APPROVAL_TIMEOUT_MS`, `AGGREGATOR_REQUIRE_HUMAN_MERGE=0` to disable the
 merge gate, `AGGREGATOR_EXTRA_HOSTS` / `AGGREGATOR_ALLOWED_ORIGINS` for Tailscale/LAN or a dev UI origin.
 Per-repo `.aggregator.json`: `{ "copy": ["config/local.json"], "symlink": ["node_modules"] }` (`.env*` always copied).
@@ -112,3 +114,7 @@ Codex runs in its own sandbox and cannot be gated; the API returns a `warnings` 
 - Codex/Gemini/Antigravity CLIs were not installed on the dev machine; their flags are unverified against real binaries
   (Claude's were checked against the installed CLI). Override them in `agents.json` if they differ.
 - node-pty's macOS `spawn-helper` can lose its exec bit under pnpm; the daemon repairs it before the first PTY spawn.
+
+## Contributing, security, licence
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md). Released under the [MIT License](LICENSE) © 2026 Wajid Khan. Third-party dependencies are all permissively licensed (MIT, Apache-2.0, ISC, BSD).
